@@ -7,6 +7,9 @@ const { frontmatter } = Astro.props;
   <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
   <p><em>{frontmatter.description}</em></p>
   <p>著者: {frontmatter.author}</p>
+  <div class="flex gap-4">
+    {frontmatter.tags.map((tag) => <p>{tag}</p>)}
+  </div>
   <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
   <slot />
 </BaseLayout>

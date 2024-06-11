@@ -29,7 +29,7 @@ const filteredPosts = posts.filter((post) =>
   <p>{tag}のタグが付いた記事</p>
   <ul>
     {
-      posts.map((post) => (
+      filteredPosts.map((post) => (
         <BlogPost url={post.url} title={post.frontmatter.title} />
       ))
     }
