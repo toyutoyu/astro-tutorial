@@ -1,13 +1,15 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "私について";
-
+const happy = true;
+const finished = true;
+const goal = 3;
 const identity = {
   firstName: "サラ",
   country: "カナダ",
   occupation: "技術ライター",
   hobbies: ["写真", "バードウォッチング", "野球"],
 };
-
 const skills = [
   "HTML",
   "CSS",
@@ -16,39 +18,27 @@ const skills = [
   "Astro",
   "ドキュメントの執筆",
 ];
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <a href="/">ホーム</a>
-    <a href="/about/">概要</a>
-    <a href="/blog/">ブログ</a>
-    <h1 class="font-bold text-4xl">私について</h1>
-    <h2>そして私の新しいAstroサイトについて！</h2>
-
-    <p>以下は私に関するいくつかの事実です。</p>
-    <ul>
-      <li>私の名前は{identity.firstName}です。</li>
-      <li>
-        {identity.country}に住んでおり、{
-          identity.occupation
-        }として働いています。
-      </li>
-      {
-        identity.hobbies.length >= 2 && (
-          <li>
-            私の2つの趣味は{identity.hobbies[0]}と{identity.hobbies[1]}です。
-          </li>
-        )
-      }
-    </ul>
-    <ul>
-      {skills.map((skill) => <li>{skill}</li>)}
-    </ul>
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <p>以下は私に関するいくつかの事実です。</p>
+  <ul>
+    <li>私の名前は{identity.firstName}です。</li>
+    <li>
+      {identity.country}に住んでおり、{identity.occupation}として働いています。
+    </li>
+    {
+      identity.hobbies.length >= 2 && (
+        <li>
+          私の2つの趣味は{identity.hobbies[0]}と{identity.hobbies[1]}です。
+        </li>
+      )
+    }
+  </ul>
+  <ul>
+    {skills.map((skill) => <li>{skill}</li>)}
+  </ul>
+</BaseLayout>
