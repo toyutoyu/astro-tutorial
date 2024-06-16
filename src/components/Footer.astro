@@ -4,7 +4,9 @@ const username = "withastro";
 import Social from "./Social.astro";
 ---
 
-<footer class="flex gap-[1rem] mt-[2rem]">
+<footer
+  class="flex gap-[1rem] justify-center absolute bottom-0 bg-slate-100 p-4 w-full"
+>
   <p>
     私のプロジェクトについて詳しくは<a
       href={`https://www.${platform}.com/${username}`}>{platform}</a
